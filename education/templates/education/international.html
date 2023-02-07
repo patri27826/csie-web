@@ -1,0 +1,133 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header education-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-mortarboard-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "國際合作交流" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "學生事務" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "國際合作交流" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <section class="post_list-area">
+    <div class="row">
+      <div class="col-xl-1"></div>
+      <div class="col-xl-10">
+        {% if posts %}
+            <ul class="list-title">
+              {% for post in posts %}
+              <li class="li-title">
+                <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                  {% if post.is_pin %}
+                  <span class="badge badge-warning">置頂</span>
+                  {% endif %}
+                  {% if post.status|stringformat:"s" == "一般" %}
+                  <span class="badge badge-secondary">{{post.status}}</span>
+                  {% elif post.status|stringformat:"s" == "重要" %}
+                  <span class="badge badge-danger">{{post.status}}</span>
+                  {% elif post.status|stringformat:"s" == "大學部" %}
+                  <span class="badge badge-primary">{{post.status}}</span>
+                  {% elif post.status|stringformat:"s" == "碩士" %}
+                  <span class="badge badge-success">{{post.status}}</span>
+                  {% elif post.status|stringformat:"s" == "博士" %}
+                  <span class="badge badge-info">{{post.status}}</span>
+                  {% else %}
+                  <span class="badge badge-dark">{{post.status}}</span>
+                  {% endif %}
+
+                  {% get_current_language as CURRENT_LANGUAGE %}
+                  {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                  <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                  {% else %}
+                  <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                  {% endif %}
+                </div>
+                <span class="float-right d-none d-sm-block">{{post.date|date:"Y.m.d"}}</span>
+              </li>
+              
+              <li class="d-flex flex-column">
+                {% for i in post.postfile_set.all %}
+                {% if i.file %}
+                <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                  <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                </a>
+                {% endif %}
+                {% endfor %}
+              </li>
+                
+              {% endfor %}
+            </ul>
+            
+            <nav aria-label="Page navigation example mt-5">
+              <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">«</a>
+                </li>
+                  {% if page_obj.number > 3 %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page=1">1</a>
+                  </li>
+                    {% if page_obj.number > 4 %}
+                    <li class="page-item">
+                      <a class="page-link">...</a>
+                    </li>
+                    {% endif %}
+                  {% endif %}
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                  {% if page_obj.number == num %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                  </li>
+                  {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                  </li>
+                  {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                  {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                  <li class="page-item">
+                    <a class="page-link">...</a>
+                  </li>
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                  </li>
+                {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                  <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                  </li>
+                {% endif %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">»</a>
+                </li>
+                {% endif %}
+              </ul>
+            </nav>
+          {% else %}
+            <p>There are no posts.</p>
+          {% endif %}
+      </div>
+      <div class="col-xl-1"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

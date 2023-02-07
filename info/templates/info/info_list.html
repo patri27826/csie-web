@@ -1,0 +1,81 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header info-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-info-circle-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "簡介" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <!-- <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "簡介" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "系所介紹" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div> -->
+  <section class="info_list-area">
+    <div class="row">
+      <div class="col-xl-1 order-xl-1"></div>
+      <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+        <h4>{% trans "簡介" %}</h4>
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/en/info/' or request.path == '/zh-hant/info/' %}active{% endif %}" href="{% url 'info' %}">{% trans "系所介紹" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'directions' in request.path %}active{% endif %}" href="{% url 'Directions' %}">{% trans "教育目標" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'honor' in request.path %}active{% endif %}" href="{% url 'Honor' %}">{% trans "榮譽事蹟" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'regulation' in request.path %}active{% endif %}" href="{% url 'Regulation' %}">{% trans "法規彙編" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'visiting' in request.path %}active{% endif %}" href="{% url 'Visiting' %}">{% trans "交通資訊" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'equipment' in request.path %}active{% endif %}" href="{% url 'Equipment' %}">{% trans "設備介紹" %}</a>
+            </li>
+          </ul>
+    </div>
+      <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+        {% if info_list %}
+        <ul class="info_title">
+          
+          {% for info in info_list %}
+                
+            <p class="info-title">{{info.title}}</p>
+            <hr class="my-4" color="#414141">
+            <p class="mt-5">{{info.content|safe }}</p>
+            <p class="info-subtitle mt-5">{{info.subtitle1}}</p>
+            <p class="mt-5">{{info.subcontent1|safe }}</p>
+            <p class="info-subtitle mt-5">{{info.subtitle2}}</p>
+            <p class="mt-5">{{info.subcontent2|safe }}</p>
+            <p class="info-subtitle mt-5">{{info.subtitle3}}</p>
+            <p class="mt-5">{{info.subcontent3|safe }}</p>
+            {% load static %}
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>There are no info.</p>
+      {% endif %}
+      </div>
+      <div class="col-xl-1 order-xl-4"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

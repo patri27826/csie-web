@@ -1,0 +1,144 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+    {% load static %}
+    {% load i18n %}
+    <div class="header members-image d-flex row p-3">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-11 align-self-center"><em class="bi bi-person-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "師資" %}</div>    
+      </div>
+
+    <div class="mt-5">
+        <!-- <div class="row my-3">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-11 top-nav d-flex flex-nowrap">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'members_csie' %}">{% trans "成員" %}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "師資" %}</li>
+                      {% if "csie" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "資訊系" %}</li>
+                      {% elif "csieg" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "資訊所" %}</li>
+                      {% elif "ai" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "AI學程" %}</li>
+                      {% elif "med" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "醫資所" %}</li>
+                      {% elif "imis" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "製造所" %}</li>
+                      {% elif "adjunct" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "兼任師資" %}</li>
+                      {% elif "joint" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "合聘師資" %}</li>
+                      {% elif "visiting" in request.path %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "客座教授" %}</li>
+                      {% else %}
+                      <li class="breadcrumb-item active" aria-current="page">{% trans "退休教師" %}</li>
+                      
+                      {% endif %}
+                    </ol>
+                  </nav>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-xl-1 order-xl-1"></div>
+            <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+                <h4>{% trans "師資" %}</h4>
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/en/members/csie' or request.path == '/zh-hant/members/csie' %}active{% endif %}" href="{% url 'members_csie' %}">{% trans "資訊系" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'csieg' in request.path %}active{% endif %}" href="{% url 'members_csieg' %}">{% trans "資訊所" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'med' in request.path %}active{% endif %}" href="{% url 'members_med' %}">{% trans "醫資所" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'imis' in request.path %}active{% endif %}" href="{% url 'members_imis' %}">{% trans "製造所" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'ai' in request.path %}active{% endif %}" href="{% url 'members_ai' %}">{% trans "AI學程" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'adjunct' in request.path %}active{% endif %}" href="{% url 'members_adjunct' %}">{% trans "兼任師資" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'joint' in request.path %}active{% endif %}" href="{% url 'members_joint' %}">{% trans "合聘師資" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'visiting' in request.path %}active{% endif %}" href="{% url 'members_visiting' %}">{% trans "客座教授" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'retire' in request.path %}active{% endif %}" href="{% url 'members_retired' %}">{% trans "退休教師" %}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if 'office' in request.path %}active{% endif %}" href="{% url 'office_members' %}">{% trans "系辦成員" %}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+                <section class="member-list-area">
+                    <div class="row d-flex justify-content-center">
+                        <p class="pb-2 mb-4 info-title border-bottom border-success">
+                            {% if request.path == '/en/members/csie' or request.path == '/zh-hant/members/csie' %}{% trans "資訊工程學系" %}
+                            {% elif 'csieg' in request.path %}{% trans "資訊工程研究所" %}
+                            {% elif 'ai' in request.path %}{% trans "人工智慧科技碩士學位學程" %}
+                            {% elif 'med' in request.path %}{% trans "醫學資訊研究所" %}
+                            {% elif 'imis' in request.path %}{% trans "製造資訊與系統研究所" %}
+                            {% elif 'adjunct' in request.path %}{% trans "兼任師資" %}
+                            {% elif 'joint' in request.path %}{% trans "合聘師資" %}
+                            {% elif 'visiting' in request.path %}{% trans "客座教授" %}
+                            {% else %}{% trans "退休教師" %}{% endif %}
+                        </p>
+                    </div>
+                    
+                    <div class="row">
+                        {% if member_list %}
+                        {% for member in member_list %}
+                        <div class="col-sm-12 col-lg-6">
+                            <div class="card mb-5" style="max-width: 540px;">
+                                <div class="row g-0">
+                                  <div class="col-4 m-auto">
+                                    {% if member.photo %}
+                                        <!-- <div class="member-list-photo"> -->
+                                            <img class="align-middle w-100" src="{{ member.photo.url }}" style="height: auto;" alt="teacher">
+                                        <!-- </div> -->
+                                    {% endif %}
+                                  </div>
+                                  <div class="col-8">
+                                    <div class="card-body">
+                                      <a href="{{ member.get_absolute_url }}">
+                                        <h3 class="card-title">{{ member.name }}</h3>
+                                        <h4 class="card-title">{{ member.name_en }}</h4>
+                                        </a>
+                                      <p class="card-subtitle"><small class="text-muted">{{ member.position }}</small></p>
+                                      <p class="card-text">{{ member.department.all|join:" / " }}</p>
+                                      <p class="card-text mb-1"><em class="bi bi-door-open-fill"></em>&nbsp&nbsp{{ member.office }}</p>
+                                      <p class="card-text mb-1"><em class="bi bi-envelope-fill"></em>&nbsp&nbsp{{ member.email1 }}</p>
+                                      <p class="card-text"><em class="bi bi-telephone-fill"></em>&nbsp&nbsp{{ member.phone }}</p>
+                                        {% if member.lab and member.lab != 'nan' %}
+                                        <a href="{{ member.lab_website }}" class="card-link">{{ member.lab }}</a>
+                                        <p class="card-text">({{ member.lab_location }})</p>
+                                        {% endif %}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </div>             
+                        
+                        {% endfor %}
+    
+                        {% else %}
+                        <p>No member</p>
+                        {% endif %}
+                    </div>
+                </section>
+            </div>
+            <div class="col-xl-1 order-xl-4"></div>
+        </div>
+    </div>
+    <div>
+        <a href="#"><em class="up-to-head-icon bi-arrow-up-circle-fill"></em></a>
+    </div>
+{% endblock %}

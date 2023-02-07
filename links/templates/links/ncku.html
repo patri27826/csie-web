@@ -1,0 +1,50 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header link-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-link-45deg"style="font-size: 28px;"></em>&nbsp&nbsp{% trans "成功大學" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "相關連結" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "成功大學" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <section class="links_list-area">
+    <div class="row p-3">
+      <div class="col-xl-1"></div>
+      <div class="col-xl-10">
+        {% for link in ncku %}
+        <div class="link-card d-flex position-relative">
+          {% if item.image %}
+          <img src="{{ link.image.url }}" class="flex-shrink-0 me-3" alt="...">
+          {% endif %}
+          <div>
+            <p class="links-title mt-0">{{ link.title }}</p>
+            <p>{{ link.content | safe }}</p>
+            <a href="{{ link.link }}" target="_blank" class="stretched-link">前往{{ link.title }}</a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="col-xl-1"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

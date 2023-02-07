@@ -1,0 +1,162 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header info-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-trophy-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "榮譽事蹟" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <!-- <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "簡介" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "榮譽事蹟" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div> -->
+  
+    <div class="row">
+      <div class="col-xl-1 order-xl-1"></div>
+      <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+        <h4>{% trans "簡介" %}</h4>
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/en/info/' or request.path == '/zh-hant/info/' %}active{% endif %}" href="{% url 'info' %}">{% trans "系所介紹" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'directions' in request.path %}active{% endif %}" href="{% url 'Directions' %}">{% trans "教育目標" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'honor' in request.path %}active{% endif %}" href="{% url 'Honor' %}">{% trans "榮譽事蹟" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'regulation' in request.path %}active{% endif %}" href="{% url 'Regulation' %}">{% trans "法規彙編" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'visiting' in request.path %}active{% endif %}" href="{% url 'Visiting' %}">{% trans "交通資訊" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'equipment' in request.path %}active{% endif %}" href="{% url 'Equipment' %}">{% trans "設備介紹" %}</a>
+            </li>
+          </ul>
+    </div>
+      <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+        <section class="info_list-area">
+          {% if info %}
+          <div class="pb-4">
+            {% for item in info %}
+              <p class="info-title">{{item.title}}</p>
+              <hr class="my-4" color="#414141">
+              <p class="mt-2">{{item.content|safe }}</p>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </section>
+        <section class="post_list-area">
+          {% if page_obj %}
+          <p class="info-title">榮譽事項</p>
+          <hr class="my-4" color="#414141">
+          <ul class="list-title">
+            {% for post in page_obj %}
+            <li class="li-title d-flex w-100 justify-content-between">
+              <div class="d-inline-block text-truncate w-100" style="max-width: 90%;">
+                {% if post.is_pin %}
+                <span class="badge badge-warning">置頂</span>
+                {% endif %}
+                {% if post.status|stringformat:"s" == "一般" %}
+                <span class="badge bg-primary">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "重要" %}
+                <span class="badge text-light bg-danger">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "大學部" %}
+                <span class="badge text-light bg-secondary">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "碩士" %}
+                <span class="badge text-light bg-success">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "博士" %}
+                <span class="badge text-light bg-accent2">{{post.status}}</span>
+                {% else %}
+                <span class="badge badge-dark">{{post.status}}</span>
+                {% endif %}
+
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                {% else %}
+                <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                {% endif %}
+              </div>
+              <small class="float-right d-none d-sm-block">{{post.date|date:"Y.m.d"}}</small>
+            </li>
+            
+            
+              
+            {% endfor %}
+          </ul>   
+          <nav aria-label="Page navigation example mt-5">
+            <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">«</a>
+              </li>
+                {% if page_obj.number > 3 %}
+                <li class="page-item">
+                  <a class="page-link" href="?page=1">1</a>
+                </li>
+                  {% if page_obj.number > 4 %}
+                  <li class="page-item">
+                    <a class="page-link">...</a>
+                  </li>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+              {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                <li class="page-item">
+                  <a class="page-link">...</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                </li>
+              {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                </li>
+              {% endif %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">»</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+          {% else %}
+          {% endif %}
+        </section>
+        
+      </div>
+      <div class="col-xl-1 order-xl-4"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

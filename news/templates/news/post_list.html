@@ -1,0 +1,169 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+  <!-- ==========================Start Banner Area========================== -->
+  {% load static %}
+  {% load i18n %}
+  <div class="header news-image d-flex row p-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 align-self-center"><em class="bi bi-megaphone-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "公告" %}</div>    
+  </div>
+  
+  <!-- ===========================End Banner Area=========================== -->
+  
+  <!-- =========================Start Post_list Area========================= -->
+  
+  <div class="mt-5">
+    <!-- <div class="row my-3">
+      <div class="col-xl-1"></div>
+      <div class="col-xl-11 top-nav d-flex flex-nowrap">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'posts' %}">{% trans "公告" %}</a></li>
+            {% if "bachelorAdmission" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "大學部招生" %}</li>
+            {% elif "normal" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "一般資訊" %}</li>
+            {% elif "masterAdmission" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "研究所招生" %}</li>
+            {% elif "speeches" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "演講資訊" %}</li>
+            {% elif "awards" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "獲獎資訊" %}</li>
+            {% elif "scholarship" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "獎助學金" %}</li>
+            {% elif "jobs" in request.path %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "徵人資訊" %}</li>
+            {% else %}
+            <li class="breadcrumb-item active" aria-current="page">{% trans "全部資訊" %}</li>
+            {% endif %}
+          </ol>
+        </nav>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-xl-1 order-xl-1"></div>
+      <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+        <h4>{% trans "公告" %}</h4>
+        <ul class="nav flex-column nav-pills">
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/en/news/' or request.path == '/zh-hant/news/' %}active{% endif %}" href="{% url 'posts' %}">{% trans "全部資訊" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'normal' in request.path %}active{% endif %}" href="{% url 'posts_normal' %}">{% trans "一般資訊" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'bachelorAdmission' in request.path %}active{% endif %}" href="{% url 'posts_bachelorAdmission' %}">{% trans "大學部招生" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'masterAdmission' in request.path %}active{% endif %}" href="{% url 'posts_masterAdmission' %}">{% trans "研究所招生" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'speeches' in request.path %}active{% endif %}" href="{% url 'posts_speeches' %}">{% trans "演講及活動資訊" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'awards' in request.path %}active{% endif %}" href="{% url 'posts_awards' %}">{% trans "獲獎資訊" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'scholarship' in request.path %}active{% endif %}" href="{% url 'posts_scholarship' %}">{% trans "獎助學金" %}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if 'jobs' in request.path %}active{% endif %}" href="{% url 'posts_jobs' %}">{% trans "徵人資訊" %}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+        <section class="post_list-area">
+          {% if post_list %}
+          <ul class="list-title">
+            {% for post in post_list %}
+            <li class="li-title d-flex w-100 justify-content-between">
+              <div class="d-inline-block text-truncate w-100" style="max-width: 90%;">
+                {% if post.is_pin %}
+                <span class="badge badge-warning">置頂</span>
+                {% endif %}
+                {% if post.status|stringformat:"s" == "一般" %}
+                <span class="badge bg-primary">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "重要" %}
+                <span class="badge text-light bg-danger">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "大學部" %}
+                <span class="badge text-light bg-secondary">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "碩士" %}
+                <span class="badge text-light bg-success">{{post.status}}</span>
+                {% elif post.status|stringformat:"s" == "博士" %}
+                <span class="badge text-light bg-accent2">{{post.status}}</span>
+                {% else %}
+                <span class="badge badge-dark">{{post.status}}</span>
+                {% endif %}
+
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                {% else %}
+                <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                {% endif %}
+              </div>
+              <small class="float-right d-none d-sm-block">{{post.date|date:"Y.m.d"}}</small>
+            </li>
+              
+            {% endfor %}
+          </ul>   
+          <nav aria-label="Page navigation example mt-5">
+            <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}">«</a>
+              </li>
+                {% if page_obj.number > 3 %}
+                <li class="page-item">
+                  <a class="page-link" href="?page=1">1</a>
+                </li>
+                  {% if page_obj.number > 4 %}
+                  <li class="page-item">
+                    <a class="page-link">...</a>
+                  </li>
+                  {% endif %}
+                {% endif %}
+              {% endif %}
+              {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                </li>
+                {% endif %}
+              {% endfor %}
+              {% if page_obj.has_next %}
+                {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                <li class="page-item">
+                  <a class="page-link">...</a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                </li>
+              {% elif page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                </li>
+              {% endif %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}">»</a>
+              </li>
+              {% endif %}
+            </ul>
+          </nav>
+          {% else %}
+          {% endif %}
+        </section>
+      </div>
+      <div class="col-xl-1 order-xl-4"></div>
+    </div>
+  </div>
+  
+
+  <!-- ==========================End Post_list Area========================== -->
+  
+{% endblock %}

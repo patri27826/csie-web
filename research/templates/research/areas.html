@@ -1,0 +1,75 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header research-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-circle-square"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "研究群" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <!-- <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "學術研究" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "研究群" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div> -->
+  <section class="info_list-area">
+    <div class="row">
+      <div class="col-xl-1 order-xl-1"></div>
+      <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+        <h4>{% trans "學術研究" %}</h4>
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link {% if 'lab' in request.path %}active{% endif %}" href="{% url 'Lab' %}">{% trans "實驗室" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'areas' in request.path %}active{% endif %}" href="{% url 'Areas' %}">{% trans "研究群" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'centers' in request.path %}active{% endif %}" href="{% url 'Centers' %}">{% trans "研究中心" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'international' in request.path %}active{% endif %}" href="{% url 'International' %}">{% trans "國際合作交流" %}</a>
+            </li>
+          </ul>
+      </div>
+      <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+        {% if areas %}
+          <ul class="info_title">
+            
+            {% for area in areas %}
+                  
+            <p class="info-subtitle mt-5">{{area.title}}</p>
+            <p class="mt-5">{{area.content|safe }}</p>
+              
+            {% load static %}
+              
+              {% if area.image %}
+              <img class="mx-auto d-block mt-5" src="{{area.image.url}}" alt="Image">
+              {% endif %}
+              
+              
+            {% endfor %}
+          </ul>
+        {% else %}
+
+        {% endif %}
+      </div>
+      <div class="col-xl-1 order-xl-4"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

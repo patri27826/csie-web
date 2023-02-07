@@ -1,0 +1,250 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+    {% load static %}
+    {% load i18n %}
+    <div class="header members-image d-flex row p-3">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-11 align-self-center"><em class="bi bi-person-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "師資" %}</div>    
+      </div>
+
+    <div class="mt-5">
+        <div class="row my-3">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-11 top-nav d-flex flex-nowrap">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                      <li class="breadcrumb-item"><a href="{% url 'members_csie' %}">{% trans "成員" %}</a></li>
+                      <li class="breadcrumb-item"><a href="{% url 'members_csie' %}">{% trans "師資" %}</a></li>
+                      <li class="breadcrumb-item active" aria-current="page">{{ member.name }}</li>
+                    </ol>
+                  </nav>
+            </div>
+        </div>
+        <section class="member-detail-area">
+            <div class="row note-editable">
+                <div class="col-xl-1"></div>
+                <div class="col-xl-10 col-md-12">
+                    <div class="row p-3">
+                        <div class="col-sm-8 col-12">
+                            <div class="mb-5">
+                                <h1 style="color:#414141;"><strong>{{ member.name }}</strong></h1>
+                                <h5>{{ member.name_en }}</h5>
+                                <hr class="my-3" color="black" style="width: 4rem; margin-left:0;">
+                                <p>{{ member.position }}</p>
+                            </div>
+                            
+                            <p class="mem-detail-title">{% trans "聯絡方式" %}</p>
+                            <p>{{ member.department.all|join:" / " }}</p>
+                            <p><em class="bi bi-door-open-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.office }}</p>
+                            <p><em class="bi bi-telephone-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.phone }}</p>
+                            <p><em class="bi bi-envelope-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.email1 }}
+                                {% if member.email2 %}
+                                    ;{{member.email2 }}
+                                {% endif %}
+                                {% if member.email3 %}
+                                    ;{{ member.email3 }}
+                                {% endif %}
+                            </p>
+                            {% if member.lab and member.lab != 'nan' %}
+                            <p><em class="bi bi-house-fill" style="font-size: 20px;"></em>&nbsp&nbsp<a class="mem-detail-link" href="{{ member.lab_website }}">{{ member.lab }}</a></p>
+                            <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp({{ member.lab_location }})</p>
+                                        
+                            {%  endif %}
+                            {% if member.website and member.website != 'nan' %}
+                            <p><em class="bi bi-file-person-fill" style="font-size: 20px;"></em>&nbsp&nbsp<a class="mem-detail-link" href="{{ member.website }}">{% trans "個人網站" %}</a></p>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-4 col-12">
+                            {% if member.photo %}
+                            <img src="{{ member.photo.url }}"alt="teacher">
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="row p-3">
+                        <div class="col-12">
+                            {% if member.expertise and member.expertise != 'nan' %}
+                            <div class="block expertise pb-5">
+                                <p class="mem-detail-title">{% trans "專長及研究領域" %}</p>
+                                <p>{{ member.expertise | safe }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if member.graduate and member.graduate != 'nan' %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "學歷" %}</p>
+                                <p>{{ member.graduate| safe }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if member.experience and member.experience != 'nan' %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "經歷" %}</p>
+                                <p>{{ member.experience| safe }}</p>
+                            </div>
+                            {% endif %}
+                        
+                            {% if member.patent and member.patent != 'nan' %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "專利" %}</p>
+                                <p>{{ member.patent| safe }}</p>
+                            </div>
+                            {% endif %}
+
+                            {% if member.awarded and member.awarded != 'nan' %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "榮譽及獲獎" %}</p>
+                                <p>{{ member.awarded| safe }}</p>
+                            </div>
+                            {% endif %}
+                            
+                            {% if member.published_accepted_papers or member.published_refered_papers or member.published_conference_foreign or member.published_conference_domestic %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "著作" %}</p>
+                                {% if member.published_accepted_papers and member.published_accepted_papers != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title">Accepted Papers to be Published</h5>
+                                    <p>{{ member.published_accepted_papers| safe }}</p>
+                                </div>
+                                {% endif %}
+                                {% if member.published_refered_papers and member.published_refered_papers != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title">Refered Papers</h5>
+                                    <p>{{ member.published_refered_papers| safe }}</p>
+                                </div>
+                                {% endif %}
+                                {% if member.published_conference_foreign or member.published_conference_domestic %}
+                                <div>
+                                    <h5 class="mem-little-title">Conference Papers</h5>
+                                    {% if member.published_conference_foreign and member.published_conference_foreign != 'nan' %}
+                                    <p style="color: #000066;">{% trans "國際會議" %}</p>
+                                    <p>{{ member.published_conference_foreign| safe }}</p>
+                                    {% endif %}
+                                    {% if member.published_conference_domestic and member.published_conference_domestic != 'nan' %}
+                                    <p style="color: #000066;">{% trans "國內會議" %}</p>
+                                    <p>{{ member.published_conference_domestic| safe }}</p>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                            
+                            {% if member.project_tech or member.project_gen %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "研究計劃" %}</p>
+                                {% if member.project_tech and member.project_tech != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title"><strong>{% trans "科技部計劃" %}</strong></h5>
+                                    <p>{{ member.project_tech|  safe }}</p>
+                                </div>
+                                {% endif %}
+                                {% if member.project_gen and member.project_gen != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title"><strong>{% trans "一般建教案" %}</strong></h5>
+                                    <p>{{ member.project_gen|  safe }}</p>
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+
+                            {% if member.students_doc or member.students_master or member.strdents_honor or member.students_conference %}
+                            <div class="block pb-5">
+                                <p class="mem-detail-title">{% trans "指導學生情況" %}</p>
+                                {% if member.students_doc or member.students_master %}
+                                <div>
+                                    {% if member.students_doc and member.students_doc != 'nan' %}
+                                    <h5 class="mem-little-title"><strong>{% trans "指導學生" %}</strong></h5>
+                                    <p>{% trans "博士班" %}:</p>
+                                    <p>{{ member.students_doc|  safe }}</p>
+                                    {% endif %}
+                                    {% if member.students_master and member.students_master != 'nan' %}
+                                    <p>{% trans "碩士班" %}:</p>
+                                    <p>{{ member.students_master|  safe }}</p>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                                {% if member.students_honor and member.students_honor != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title"><strong>{% trans "指導學生之特殊榮譽" %}</strong></h5>
+                                    <p>{{ member.students_honor|  safe }}</p>
+                                </div>
+                                {% endif %}
+                                {% if member.students_conference and member.students_conference != 'nan' %}
+                                <div>
+                                    <h5 class="mem-little-title"><strong>{% trans "主辦及參與國際會議" %}</strong></h5>
+                                    <p>{{ member.students_conference|  safe }}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-1"></div>
+            </div>
+        </section>
+
+    </div>
+    
+    <!-- <div class="container-fluid">
+        
+        <div class="container mt-5">
+            <div class="">
+                <h1 style="color:#414141;"><strong>{{ member.name }}</strong></h1>
+                <hr class="my-3" color="black" style="width: 4rem; margin-left:0;">
+                <p>{{ member.position }}</p>
+            </div>
+                <div class="">
+                    <div class="d-flex flex-wrap">
+                        <div class="me-auto py-5">
+                            <div>
+                                <p class="mem-detail-title">聯絡方式</p>
+                                <p>{{ member.department.all|join:" / " }}</p>
+                                <p><em class="bi bi-door-open-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.office }}</p>
+                                <p><em class="bi bi-telephone-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.phone }}</p>
+                                <p><em class="bi bi-envelope-fill" style="font-size: 20px;"></em>&nbsp&nbsp{{ member.email1 }}
+                                    {% if member.email2 %}
+                                        ;{{member.email2 }}
+                                    {% endif %}
+                                    {% if member.email3 %}
+                                        ;{{ member.email3 }}
+                                    {% endif %}
+                                </p>
+                                {% if member.lab %}
+                                <p><em class="bi bi-house-fill" style="font-size: 20px;"></em>&nbsp&nbsp<a class="mem-detail-link" href="{{ member.lab_website }}">{{ member.lab }}</a></p>
+                                <p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp({{ member.lab_location }})</p>
+                                
+                                {%  endif %}
+                                {% if member.website %}
+                                <p><em class="bi bi-file-person-fill" style="font-size: 20px;"></em>&nbsp&nbsp<a class="mem-detail-link" href="{{ member.website }}">個人網站</a></p>
+                                
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="mx-auto"></div>
+                        <div class="align-items-center">
+                            {% if member.photo %}
+                            <img src="{{ member.photo.url }}" height='360' width='280' class="img-float" alt="teacher">
+                            {% endif %}
+                        </div>
+                        <div class="mx-auto"></div>
+                      </div>   
+                    </div>
+
+                    
+            
+                </div>
+        </div> -->
+
+    <!-- <a class="" href="{% url 'members' %}"> -->
+        <button onclick="history.back()" class="return-btn mx-auto d-block justify-content-center" style="vertical-align:middle;"><span>{% trans "返回師資陣容" %} </span></button>
+    <!-- </a> -->
+    <div>
+        <a href="#"><em class="up-to-head-icon bi-arrow-up-circle-fill"></em></a>
+    </div>
+
+    
+
+
+{% endblock %}

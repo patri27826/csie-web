@@ -1,0 +1,39 @@
+{% extends 'new_base.html' %}
+{% load highlight %}
+{% block content %}
+<div class="container">
+    <h3>搜尋結果</h3>
+    {% if query %}
+        {% for result in page.object_list %}
+            <div class="list-group">
+                <a href="{{  result.object.get_absolute_url }}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-2">{% highlight result.object.title with query %}</h5>
+                    <small>{% highlight result.object.date with query %}</small>
+                </div>
+                <p class="mb-2">{% highlight result.object.content with query max_length 100 %}</p>
+                <small>{% highlight result.object.staff with query %}</small>
+                </a>
+            </div>
+            {% empty %}
+            <h5>沒有找到相關內容</h5>
+        {% endfor %}
+    {% endif %}
+    <div class="pagination">
+        <span class="step-links">
+        {% if page.has_previous %}
+            <a href="?q={{ query }}&page={{ page.previous_page_number }}">上一頁</a>
+        {% endif %}
+
+        <span class="current">
+            Page{{ page.number }} of {{ page.paginator.num_pages }}
+        </span>
+
+        {% if page.has_next %}
+            <a href="?q={{ query }}&page={{ page.next_page_number }}">下一頁</a>
+        {% endif %}
+        </span>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>系所成員</h1>
+
+    <h2>Dynamic content</h2>
+    <p>The members has the following record counts:</p>
+    <p><a href="{% url 'members' %}">師資陣容</a></p>
+    <p><a href="{% url 'office_members' %}">系辦成員</a></p>
+    <ul>
+        <li><strong>師資人數:</strong> {{ num_member }}</li>
+        <li><strong>系辦人數:</strong> {{ num_office_member }}</li>
+    </ul>
+
+    <p>You have visited this page {{ num_visits }}{% if num_visits == 1 %} time{% else %} times{% endif %}.</p>
+    
+{% endblock %}
+

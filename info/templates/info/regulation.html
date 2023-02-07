@@ -1,0 +1,457 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+{% load static %}
+{% load i18n %}
+<div class="header info-image d-flex row p-3">
+  <div class="col-xl-1"></div>
+  <div class="col-xl-11 align-self-center"><em class="bi bi-info-circle-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "法規彙編" %}</div>    
+</div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Info_list Area========================= -->
+<div class="mt-5">
+  <!-- <div class="row my-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 top-nav d-flex flex-nowrap">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">{% trans "簡介" %}</a></li>
+          <li class="breadcrumb-item active" aria-current="page">{% trans "法規彙編" %}</li>
+        </ol>
+      </nav>
+    </div>
+  </div> -->
+  <section class="doc_tabs-area">
+    <div class="row">
+      <div class="col-xl-1 order-xl-1"></div>
+      <div class="col-xl-2 col-md-12 px-5 pb-5 order-xl-2">
+        <h4>{% trans "簡介" %}</h4>
+        <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link {% if request.path == '/en/info/' or request.path == '/zh-hant/info/' %}active{% endif %}" href="{% url 'info' %}">{% trans "系所介紹" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'directions' in request.path %}active{% endif %}" href="{% url 'Directions' %}">{% trans "教育目標" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'honor' in request.path %}active{% endif %}" href="{% url 'Honor' %}">{% trans "榮譽事蹟" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'regulation' in request.path %}active{% endif %}" href="{% url 'Regulation' %}">{% trans "法規彙編" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'visiting' in request.path %}active{% endif %}" href="{% url 'Visiting' %}">{% trans "交通資訊" %}</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link {% if 'equipment' in request.path %}active{% endif %}" href="{% url 'Equipment' %}">{% trans "設備介紹" %}</a>
+            </li>
+          </ul>
+    </div>
+      <div class="col-xl-8 col-md-12 px-5 order-xl-3">
+        <nav>
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-1" type="button" role="tab" aria-controls="nav-1" aria-selected="true">{% trans "大學部" %}</button>
+            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-2" type="button" role="tab" aria-controls="nav-2" aria-selected="false">{% trans "研究所" %}</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-3" type="button" role="tab" aria-controls="nav-3" aria-selected="false">{% trans "教師" %}</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-4" type="button" role="tab" aria-controls="nav-4" aria-selected="false">{% trans "課務" %}</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-6" type="button" role="tab" aria-controls="nav-6" aria-selected="false">{% trans "獎學金" %}</button>
+            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-5" type="button" role="tab" aria-controls="nav-5" aria-selected="false">{% trans "其他" %}</button>
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+            {% if info1 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info1 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post1 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+            {% if info2 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info2 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post2 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+            {% if info3 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info3 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post3 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-4" role="tabpanel" aria-labelledby="nav-4-tab">
+            {% if info4 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info4 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post4 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-5" role="tabpanel" aria-labelledby="nav-5-tab">
+            {% if info5 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info5 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post5 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+          <div class="tab-pane fade" id="nav-6" role="tabpanel" aria-labelledby="nav-6-tab">
+            {% if info6 %}
+            <div class="py-4">
+                <ul class="info_title">
+                  {% for item in info6 %}
+                        
+                    <p class="info-title">{{item.title}}</p>
+                    <p class="mt-2">{{item.content|safe }}</p>
+                  {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            <ul class="list-group list-group-flush">
+              {% for post in post6 %}
+                <li class="list-group-item d-flex w-100 justify-content-between">
+                  <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+                    {% if post.is_pin %}
+                    <span class="badge badge-warning">置頂</span>
+                    {% endif %}
+                    {% if post.status|stringformat:"s" == "一般" %}
+                    <span class="badge badge-secondary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "重要" %}
+                    <span class="badge badge-danger">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "大學部" %}
+                    <span class="badge badge-primary">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "碩士" %}
+                    <span class="badge badge-success">{{post.status}}</span>
+                    {% elif post.status|stringformat:"s" == "博士" %}
+                    <span class="badge badge-info">{{post.status}}</span>
+                    {% else %}
+                    <span class="badge badge-dark">{{post.status}}</span>
+                    {% endif %}
+
+                    {% get_current_language as CURRENT_LANGUAGE %}
+                    {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title_en}}</a>
+                    {% else %}
+                    <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+                    {% endif %}
+                  </div>
+                  <span class="float-right d-none d-sm-block font-weight-normal">{{post.date|date:"Y.m.d"}}</span>
+                </li>
+                
+                <li class="my-2 file-name d-flex flex-column">
+                  {% for i in post.postfile_set.all %}
+                  {% if i.file %}
+                  <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+                    <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+                  </a>
+                  {% endif %}
+                  {% endfor %}
+                </li>
+                  
+                {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-1 order-xl-4"></div>
+    </div>
+  </section>
+  <!-- <section class="post_list-area">
+    <div class="row">
+      <div class="col-xl-1"></div>
+      <div class="col-xl-10">
+        {% if posts %}
+        <ul class="list-title">
+          {% for post in posts %}
+          <li class="li-title">
+            <div class="d-inline-block text-truncate w-100" style="max-width: 900px;">
+              {% if post.is_pin %}
+              <span class="badge badge-warning">置頂</span>
+              {% endif %}
+              {% if post.status|stringformat:"s" == "一般" %}
+              <span class="badge badge-secondary">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "重要" %}
+              <span class="badge badge-danger">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "大學部" %}
+              <span class="badge badge-primary">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "碩士" %}
+              <span class="badge badge-success">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "博士" %}
+              <span class="badge badge-info">{{post.status}}</span>
+              {% else %}
+              <span class="badge badge-dark">{{post.status}}</span>
+              {% endif %}
+
+              <a href="{{ post.get_absolute_url }}">{{post.title}}</a>
+            </div>
+            <span class="float-right d-none d-sm-block">{{post.date|date:"Y.m.d"}}</span>
+          </li>
+          
+          <li class="d-flex flex-column">
+            {% for i in post.postfile_set.all %}
+            <a class="pl-5 m-1" href="{{i.file.url}}" download style="font-size: 16px;">
+              <em class="bi-file-earmark-arrow-down"></em>{{ i }}
+            </a>
+            {% endfor %}
+          </li>
+            
+          {% endfor %}
+        </ul>             
+        
+        {% else %}
+        <p>There are no posts.</p>
+        {% endif %}
+      </div>
+      <div class="col-xl-1"></div>
+    </div>
+  </section> -->
+</div>
+<!-- ==========================End Info_list Area========================== -->
+
+{% endblock %}

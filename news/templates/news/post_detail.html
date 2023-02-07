@@ -1,0 +1,111 @@
+{% extends "new_base.html" %}
+
+{% block content %}
+<!-- ==========================Start Banner Area========================== -->
+  {% load static %}
+  {% load i18n %}
+  <div class="header news-image d-flex row p-3">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-11 align-self-center"><em class="bi bi-megaphone-fill"style="font-size: 24px;"></em>&nbsp&nbsp{% trans "公告" %}</div>    
+  </div>
+<!-- ===========================End Banner Area=========================== -->
+
+<!-- =========================Start Post_detail Area========================= -->
+
+  <div class="mt-5">
+    <!-- <div class="row my-3">
+      <div class="col-xl-1"></div>
+      <div class="col-xl-11 top-nav d-flex flex-nowrap">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'posts' %}">{% trans "公告" %}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+          </ol>
+        </nav>
+      </div>
+    </div> -->
+    <section class="post_detail-area">
+      <div class="row p-3 note-editable">
+        <div class="col-xl-1"></div>
+        <div class="col-xl-10 col-md-12">
+          <div class="d-flex flex-wrap">
+            <div class="me-auto p-2">
+              {% get_current_language as CURRENT_LANGUAGE %}
+                  {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                  <span class="post-title">{{ post.title_en }}</span>
+                  {% else %}
+                  <span class="post-title">{{ post.title }}</span>
+                  {% endif %}
+            </div>
+            <div class="mr-auto"></div>
+            <div class="align-self-center mx-3">
+              {% if post.is_pin %}
+              <span class="badge badge-warning">置頂</span>
+              {% endif %}
+              {% if post.status|stringformat:"s" == "一般" %}
+              <span class="badge badge-secondary">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "重要" %}
+              <span class="badge badge-danger">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "大學部" %}
+              <span class="badge badge-primary">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "碩士" %}
+              <span class="badge badge-success">{{post.status}}</span>
+              {% elif post.status|stringformat:"s" == "博士" %}
+              <span class="badge badge-info">{{post.status}}</span>
+              {% else %}
+              <span class="badge badge-dark">{{post.status}}</span>
+              {% endif %}</div>
+            <div class="align-self-center mx-2"><span>{{post.date|date:"Y.m.d"}}</span></div>
+          </div>
+          <hr class="my-4" color="#414141"> 
+          <div class="p-4"><span class="post-content">
+            {{ post.content | safe }}
+          </span></div>
+          
+          <hr class="my-4" color="#414141">
+          <div class="p-4">
+            <p><strong>{% trans "公告類型" %}:</strong> {{ post.type.all|join:", " }}</p>
+            <p><strong>{% trans "公告狀態" %}:</strong> {{ post.status }}</p>
+            <p><strong>{% trans "公告人員" %}:</strong> {{ post.staff }}</p>
+            <p><strong>{% trans "公告日期" %}:</strong> {{ post.date|date:"Y / m / d H:i" }}</p>
+            <p><strong>{% trans "更新日期" %}:</strong> {{ post.update_date|date:"Y / m / d H:i" }}</p>
+          </div>
+    
+          {% for i in post.postimage_set.all %}
+          <img class="mx-auto d-block m-5 w-50" src="{{i.image.url}}" alt="Image">
+          {% endfor %}
+          
+          {% if post.link != None and post.link != ' ' %}
+          <span class="post-attach p-2">{% trans "相關連結" %}</span>
+          <hr class="my-4" color="#414141">
+          <a class="post-link" href="{{ post.link }}">
+            <div style="font-size:18px;"><em class="bi bi-link"></em>{{ post.link }}</div>
+          </a><br/>
+          {% endif %}
+          
+          {% if post.postfile_set.all %}
+            <span class="post-attach p-2">{% trans "附加檔案" %}</span>
+            <hr class="my-4" color="#414141">
+            
+            {% for i in post.postfile_set.all %}
+              {% if i.file %}
+              <a class="" href="{{i.file.url}}" download>
+                <button type="button" class="btn download-btn"><em class="bi bi-download" style="font-size:24px;"></em>  {{ i }}</button>
+              </a>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          
+          <!-- <a class="" href="{% url 'posts' %}"> -->
+            <button onclick="history.back()" class="return-btn mx-auto d-block mt-5" style="vertical-align:middle"><span>{% trans "返回公告" %} </span></button>
+          <!-- </a> -->
+        </div>
+        <div class="col-xl-1">
+  
+        </div>
+      </div>
+    </section>
+  </div>
+<!-- ==========================End Post_detail Area========================== -->
+
+{% endblock %}

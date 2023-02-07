@@ -1,0 +1,1035 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-12-01 15:02+0800\n"
+"PO-Revision-Date: 2022-07-19 17:06+0806\n"
+"Last-Translator:   <yijane1126@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.9.8\n"
+
+#: .\admission\templates\admission\adm_CSIE.html:8
+#: .\admission\templates\admission\adm_CSIE.html:29
+#: .\admission\templates\admission\adm_ai.html:29
+#: .\admission\templates\admission\adm_bachelor.html:29
+#: .\admission\templates\admission\adm_bs.html:29
+#: .\admission\templates\admission\adm_imi.html:29
+#: .\admission\templates\admission\adm_inService.html:29
+#: .\admission\templates\admission\adm_industrial.html:29
+#: .\admission\templates\admission\adm_senior.html:29
+#: .\admission\templates\admission\adm_talent.html:29
+#: .\education\templates\education\ai.html:42
+#: .\education\templates\education\bachelor.html:42
+#: .\education\templates\education\bs.html:42
+#: .\education\templates\education\credits.html:42
+#: .\education\templates\education\imi.html:42
+#: .\education\templates\education\inService.html:42
+#: .\education\templates\education\industrial.html:42
+#: .\education\templates\education\instCSIE.html:9
+#: .\education\templates\education\instCSIE.html:21
+#: .\education\templates\education\instCSIE.html:42
+#: .\home\templates\home\homepage.html:136
+#: .\home\templates\home\homepage.html:162
+#: .\home\templates\home\homepage.html:589
+#: .\home\templates\home\homepage.html:612
+#: .\members\templates\members\member_list.html:22
+#: .\members\templates\members\member_list.html:52
+#: .\templates\new_base.html:140 .\templates\new_base.html:166
+#: .\templates\new_base.html:324 .\templates\new_base.html:347
+msgid "資訊所"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:14
+#: .\admission\templates\admission\adm_ai.html:14
+#: .\admission\templates\admission\adm_bachelor.html:14
+#: .\admission\templates\admission\adm_bs.html:14
+#: .\admission\templates\admission\adm_imi.html:14
+#: .\admission\templates\admission\adm_inService.html:14
+#: .\admission\templates\admission\adm_industrial.html:14
+#: .\admission\templates\admission\adm_senior.html:14
+#: .\admission\templates\admission\adm_talent.html:14
+#: .\home\templates\home\homepage.html:155
+#: .\home\templates\home\homepage.html:606 .\templates\new_base.html:159
+#: .\templates\new_base.html:341
+msgid "招生專區"
+msgstr "招生專區"
+
+#: .\admission\templates\admission\adm_CSIE.html:17
+#: .\admission\templates\admission\adm_ai.html:17
+#: .\admission\templates\admission\adm_bachelor.html:17
+#: .\admission\templates\admission\adm_bs.html:17
+#: .\admission\templates\admission\adm_imi.html:17
+#: .\admission\templates\admission\adm_inService.html:17
+#: .\admission\templates\admission\adm_industrial.html:17
+#: .\admission\templates\admission\adm_senior.html:8
+#: .\admission\templates\admission\adm_senior.html:17
+#: .\admission\templates\admission\adm_talent.html:17
+#: .\home\templates\home\homepage.html:158
+#: .\home\templates\home\homepage.html:608 .\templates\new_base.html:162
+#: .\templates\new_base.html:343
+msgid "高中生專區"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:20
+#: .\admission\templates\admission\adm_ai.html:20
+#: .\admission\templates\admission\adm_bachelor.html:8
+#: .\admission\templates\admission\adm_bachelor.html:20
+#: .\admission\templates\admission\adm_bs.html:20
+#: .\admission\templates\admission\adm_imi.html:20
+#: .\admission\templates\admission\adm_inService.html:20
+#: .\admission\templates\admission\adm_industrial.html:20
+#: .\admission\templates\admission\adm_senior.html:20
+#: .\admission\templates\admission\adm_talent.html:20
+#: .\education\templates\education\ai.html:36
+#: .\education\templates\education\bachelor.html:9
+#: .\education\templates\education\bachelor.html:21
+#: .\education\templates\education\bachelor.html:36
+#: .\education\templates\education\bs.html:36
+#: .\education\templates\education\credits.html:36
+#: .\education\templates\education\documents.html:32
+#: .\education\templates\education\imi.html:36
+#: .\education\templates\education\inService.html:36
+#: .\education\templates\education\industrial.html:36
+#: .\education\templates\education\instCSIE.html:36
+#: .\home\templates\home\homepage.html:134
+#: .\home\templates\home\homepage.html:159
+#: .\home\templates\home\homepage.html:587
+#: .\home\templates\home\homepage.html:609
+#: .\info\templates\info\regulation.html:55 .\templates\new_base.html:138
+#: .\templates\new_base.html:163 .\templates\new_base.html:322
+#: .\templates\new_base.html:344
+msgid "大學部"
+msgstr "大學部"
+
+#: .\admission\templates\admission\adm_CSIE.html:23
+#: .\admission\templates\admission\adm_ai.html:23
+#: .\admission\templates\admission\adm_bachelor.html:23
+#: .\admission\templates\admission\adm_bs.html:8
+#: .\admission\templates\admission\adm_bs.html:23
+#: .\admission\templates\admission\adm_imi.html:23
+#: .\admission\templates\admission\adm_inService.html:23
+#: .\admission\templates\admission\adm_industrial.html:23
+#: .\admission\templates\admission\adm_senior.html:23
+#: .\admission\templates\admission\adm_talent.html:23
+#: .\education\templates\education\ai.html:39
+#: .\education\templates\education\bachelor.html:39
+#: .\education\templates\education\bs.html:9
+#: .\education\templates\education\bs.html:21
+#: .\education\templates\education\bs.html:39
+#: .\education\templates\education\credits.html:39
+#: .\education\templates\education\imi.html:39
+#: .\education\templates\education\inService.html:39
+#: .\education\templates\education\industrial.html:39
+#: .\education\templates\education\instCSIE.html:39
+#: .\home\templates\home\homepage.html:135
+#: .\home\templates\home\homepage.html:160
+#: .\home\templates\home\homepage.html:588
+#: .\home\templates\home\homepage.html:610 .\templates\new_base.html:139
+#: .\templates\new_base.html:164 .\templates\new_base.html:323
+#: .\templates\new_base.html:345
+msgid "普渡雙聯組"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:26
+#: .\admission\templates\admission\adm_ai.html:26
+#: .\admission\templates\admission\adm_bachelor.html:26
+#: .\admission\templates\admission\adm_bs.html:26
+#: .\admission\templates\admission\adm_imi.html:26
+#: .\admission\templates\admission\adm_inService.html:26
+#: .\admission\templates\admission\adm_industrial.html:26
+#: .\admission\templates\admission\adm_senior.html:26
+#: .\admission\templates\admission\adm_talent.html:8
+#: .\admission\templates\admission\adm_talent.html:26
+#: .\home\templates\home\homepage.html:161
+#: .\home\templates\home\homepage.html:611 .\templates\new_base.html:165
+#: .\templates\new_base.html:346
+msgid "特殊選才"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:32
+#: .\admission\templates\admission\adm_ai.html:32
+#: .\admission\templates\admission\adm_bachelor.html:32
+#: .\admission\templates\admission\adm_bs.html:32
+#: .\admission\templates\admission\adm_imi.html:8
+#: .\admission\templates\admission\adm_imi.html:32
+#: .\admission\templates\admission\adm_inService.html:32
+#: .\admission\templates\admission\adm_industrial.html:32
+#: .\admission\templates\admission\adm_senior.html:32
+#: .\admission\templates\admission\adm_talent.html:32
+#: .\education\templates\education\ai.html:45
+#: .\education\templates\education\bachelor.html:45
+#: .\education\templates\education\bs.html:45
+#: .\education\templates\education\credits.html:45
+#: .\education\templates\education\imi.html:9
+#: .\education\templates\education\imi.html:21
+#: .\education\templates\education\imi.html:45
+#: .\education\templates\education\inService.html:45
+#: .\education\templates\education\industrial.html:45
+#: .\education\templates\education\instCSIE.html:45
+#: .\home\templates\home\homepage.html:137
+#: .\home\templates\home\homepage.html:163
+#: .\home\templates\home\homepage.html:590
+#: .\home\templates\home\homepage.html:613
+#: .\members\templates\members\member_list.html:26
+#: .\members\templates\members\member_list.html:55
+#: .\templates\new_base.html:141 .\templates\new_base.html:167
+#: .\templates\new_base.html:325 .\templates\new_base.html:348
+msgid "醫資所"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:35
+#: .\admission\templates\admission\adm_ai.html:8
+#: .\admission\templates\admission\adm_ai.html:35
+#: .\admission\templates\admission\adm_bachelor.html:35
+#: .\admission\templates\admission\adm_bs.html:35
+#: .\admission\templates\admission\adm_imi.html:35
+#: .\admission\templates\admission\adm_inService.html:35
+#: .\admission\templates\admission\adm_industrial.html:35
+#: .\admission\templates\admission\adm_senior.html:35
+#: .\admission\templates\admission\adm_talent.html:35
+#: .\education\templates\education\ai.html:9
+#: .\education\templates\education\ai.html:21
+#: .\education\templates\education\ai.html:48
+#: .\education\templates\education\bachelor.html:48
+#: .\education\templates\education\bs.html:48
+#: .\education\templates\education\credits.html:48
+#: .\education\templates\education\imi.html:48
+#: .\education\templates\education\inService.html:48
+#: .\education\templates\education\industrial.html:48
+#: .\education\templates\education\instCSIE.html:48
+#: .\home\templates\home\homepage.html:138
+#: .\home\templates\home\homepage.html:164
+#: .\home\templates\home\homepage.html:591
+#: .\home\templates\home\homepage.html:614
+#: .\members\templates\members\member_list.html:24
+#: .\members\templates\members\member_list.html:61
+#: .\templates\new_base.html:142 .\templates\new_base.html:168
+#: .\templates\new_base.html:326 .\templates\new_base.html:349
+msgid "AI學程"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:38
+#: .\admission\templates\admission\adm_ai.html:38
+#: .\admission\templates\admission\adm_bachelor.html:38
+#: .\admission\templates\admission\adm_bs.html:38
+#: .\admission\templates\admission\adm_imi.html:38
+#: .\admission\templates\admission\adm_inService.html:38
+#: .\admission\templates\admission\adm_industrial.html:8
+#: .\admission\templates\admission\adm_industrial.html:38
+#: .\admission\templates\admission\adm_senior.html:38
+#: .\admission\templates\admission\adm_talent.html:38
+#: .\education\templates\education\ai.html:51
+#: .\education\templates\education\bachelor.html:51
+#: .\education\templates\education\bs.html:51
+#: .\education\templates\education\credits.html:51
+#: .\education\templates\education\imi.html:51
+#: .\education\templates\education\inService.html:51
+#: .\education\templates\education\industrial.html:9
+#: .\education\templates\education\industrial.html:21
+#: .\education\templates\education\industrial.html:51
+#: .\education\templates\education\instCSIE.html:51
+#: .\home\templates\home\homepage.html:139
+#: .\home\templates\home\homepage.html:165
+#: .\home\templates\home\homepage.html:592
+#: .\home\templates\home\homepage.html:615 .\templates\new_base.html:143
+#: .\templates\new_base.html:169 .\templates\new_base.html:327
+#: .\templates\new_base.html:350
+msgid "產碩專班"
+msgstr ""
+
+#: .\admission\templates\admission\adm_CSIE.html:41
+#: .\admission\templates\admission\adm_ai.html:41
+#: .\admission\templates\admission\adm_bachelor.html:41
+#: .\admission\templates\admission\adm_bs.html:41
+#: .\admission\templates\admission\adm_imi.html:41
+#: .\admission\templates\admission\adm_inService.html:8
+#: .\admission\templates\admission\adm_inService.html:41
+#: .\admission\templates\admission\adm_industrial.html:41
+#: .\admission\templates\admission\adm_senior.html:41
+#: .\admission\templates\admission\adm_talent.html:41
+#: .\education\templates\education\ai.html:54
+#: .\education\templates\education\bachelor.html:54
+#: .\education\templates\education\bs.html:54
+#: .\education\templates\education\credits.html:54
+#: .\education\templates\education\imi.html:54
+#: .\education\templates\education\inService.html:9
+#: .\education\templates\education\inService.html:21
+#: .\education\templates\education\inService.html:54
+#: .\education\templates\education\industrial.html:54
+#: .\education\templates\education\instCSIE.html:54
+#: .\home\templates\home\homepage.html:140
+#: .\home\templates\home\homepage.html:166
+#: .\home\templates\home\homepage.html:593
+#: .\home\templates\home\homepage.html:616 .\templates\new_base.html:144
+#: .\templates\new_base.html:170 .\templates\new_base.html:328
+#: .\templates\new_base.html:351
+msgid "在職專班"
+msgstr ""
+
+#: .\education\templates\education\ai.html:20
+#: .\education\templates\education\ai.html:30
+#: .\education\templates\education\bachelor.html:20
+#: .\education\templates\education\bachelor.html:30
+#: .\education\templates\education\bs.html:20
+#: .\education\templates\education\bs.html:30
+#: .\education\templates\education\credits.html:30
+#: .\education\templates\education\imi.html:20
+#: .\education\templates\education\imi.html:30
+#: .\education\templates\education\inService.html:20
+#: .\education\templates\education\inService.html:30
+#: .\education\templates\education\industrial.html:20
+#: .\education\templates\education\industrial.html:30
+#: .\education\templates\education\instCSIE.html:20
+#: .\education\templates\education\instCSIE.html:30
+#: .\home\templates\home\homepage.html:130
+#: .\home\templates\home\homepage.html:584 .\templates\new_base.html:134
+#: .\templates\new_base.html:319
+msgid "課程及修業"
+msgstr ""
+
+#: .\education\templates\education\ai.html:33
+#: .\education\templates\education\bachelor.html:33
+#: .\education\templates\education\bs.html:33
+#: .\education\templates\education\credits.html:9
+#: .\education\templates\education\credits.html:33
+#: .\education\templates\education\imi.html:33
+#: .\education\templates\education\inService.html:33
+#: .\education\templates\education\industrial.html:33
+#: .\education\templates\education\instCSIE.html:33
+#: .\home\templates\home\homepage.html:133
+#: .\home\templates\home\homepage.html:586 .\templates\new_base.html:137
+#: .\templates\new_base.html:321
+msgid "課程抵免"
+msgstr ""
+
+#: .\education\templates\education\ai.html:62
+#: .\education\templates\education\bachelor.html:62
+#: .\education\templates\education\bs.html:62
+#: .\education\templates\education\imi.html:62
+#: .\education\templates\education\inService.html:62
+#: .\education\templates\education\industrial.html:62
+#: .\education\templates\education\instCSIE.html:62
+msgid "修業規定"
+msgstr ""
+
+#: .\education\templates\education\ai.html:63
+#: .\education\templates\education\bachelor.html:63
+#: .\education\templates\education\bs.html:63
+#: .\education\templates\education\course_info.html:9
+#: .\education\templates\education\course_info.html:21
+#: .\education\templates\education\imi.html:63
+#: .\education\templates\education\inService.html:63
+#: .\education\templates\education\industrial.html:63
+#: .\education\templates\education\instCSIE.html:63
+msgid "課程介紹"
+msgstr "課程介紹"
+
+#: .\education\templates\education\ai.html:66
+#: .\education\templates\education\bachelor.html:66
+#: .\education\templates\education\bs.html:66
+#: .\education\templates\education\imi.html:66
+#: .\education\templates\education\inService.html:66
+#: .\education\templates\education\industrial.html:66
+#: .\education\templates\education\instCSIE.html:66
+msgid "相關公告及檔案"
+msgstr ""
+
+#: .\education\templates\education\bachelor.html:64
+msgid "專題展"
+msgstr ""
+
+#: .\education\templates\education\course_info.html:20
+#: .\education\templates\education\documents.html:20
+#: .\education\templates\education\international.html:20
+#: .\home\templates\home\homepage.html:145
+#: .\home\templates\home\homepage.html:597 .\templates\new_base.html:149
+#: .\templates\new_base.html:332
+msgid "學生事務"
+msgstr "學生事務"
+
+#: .\education\templates\education\credits.html:20
+#: .\home\templates\home\homepage.html:93
+#: .\home\templates\home\homepage.html:554
+#: .\info\templates\info\directions.html:20
+#: .\info\templates\info\equipment.html:20
+#: .\info\templates\info\equipment.html:30 .\info\templates\info\honor.html:20
+#: .\info\templates\info\honor.html:30 .\info\templates\info\info_list.html:9
+#: .\info\templates\info\info_list.html:20
+#: .\info\templates\info\info_list.html:30
+#: .\info\templates\info\regulation.html:20
+#: .\info\templates\info\regulation.html:30
+#: .\info\templates\info\visiting.html:20
+#: .\info\templates\info\visiting.html:30 .\templates\new_base.html:97
+#: .\templates\new_base.html:289
+msgid "簡介"
+msgstr "簡介"
+
+#: .\education\templates\education\credits.html:21
+#: .\home\templates\home\homepage.html:98
+#: .\home\templates\home\homepage.html:558
+#: .\info\templates\info\directions.html:29
+#: .\info\templates\info\equipment.html:21
+#: .\info\templates\info\equipment.html:39 .\info\templates\info\honor.html:9
+#: .\info\templates\info\honor.html:21 .\info\templates\info\honor.html:39
+#: .\info\templates\info\info_list.html:39
+#: .\info\templates\info\regulation.html:39
+#: .\info\templates\info\visiting.html:39 .\templates\new_base.html:102
+#: .\templates\new_base.html:293
+msgid "榮譽事蹟"
+msgstr "榮譽事蹟"
+
+#: .\education\templates\education\documents.html:9
+#: .\education\templates\education\documents.html:21
+#: .\home\templates\home\homepage.html:148
+#: .\home\templates\home\homepage.html:516
+#: .\home\templates\home\homepage.html:599 .\templates\new_base.html:152
+#: .\templates\new_base.html:255 .\templates\new_base.html:334
+msgid "檔案下載"
+msgstr ""
+
+#: .\education\templates\education\documents.html:33
+#: .\info\templates\info\regulation.html:56
+#, fuzzy
+#| msgid "研究群"
+msgid "研究所"
+msgstr "研究群"
+
+#: .\education\templates\education\documents.html:34
+msgid "畢業生"
+msgstr ""
+
+#: .\education\templates\education\documents.html:35
+msgid "教務"
+msgstr ""
+
+#: .\education\templates\education\documents.html:36
+#: .\info\templates\info\regulation.html:60
+#, fuzzy
+#| msgid "兼任"
+msgid "其他"
+msgstr "兼任"
+
+#: .\education\templates\education\international.html:9
+#: .\education\templates\education\international.html:21
+#: .\home\templates\home\homepage.html:125
+#: .\home\templates\home\homepage.html:580
+#: .\research\templates\research\areas.html:42
+#: .\research\templates\research\centers.html:42
+#: .\research\templates\research\international.html:9
+#: .\research\templates\research\international.html:21
+#: .\research\templates\research\international.html:42
+#: .\research\templates\research\laboratories.html:41
+#: .\templates\new_base.html:129 .\templates\new_base.html:315
+msgid "國際合作交流"
+msgstr "國際合作交流"
+
+#: .\home\templates\home\homepage.html:47 .\templates\new_base.html:51
+msgid "登入"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:96
+#: .\home\templates\home\homepage.html:510
+#: .\home\templates\home\homepage.html:556
+#: .\info\templates\info\directions.html:23
+#: .\info\templates\info\equipment.html:33 .\info\templates\info\honor.html:33
+#: .\info\templates\info\info_list.html:21
+#: .\info\templates\info\info_list.html:33
+#: .\info\templates\info\regulation.html:33
+#: .\info\templates\info\visiting.html:33 .\templates\new_base.html:100
+#: .\templates\new_base.html:249 .\templates\new_base.html:291
+msgid "系所介紹"
+msgstr "系所介紹"
+
+#: .\home\templates\home\homepage.html:97
+#: .\home\templates\home\homepage.html:557
+#: .\info\templates\info\directions.html:9
+#: .\info\templates\info\directions.html:26
+#: .\info\templates\info\equipment.html:36 .\info\templates\info\honor.html:36
+#: .\info\templates\info\info_list.html:36
+#: .\info\templates\info\regulation.html:36
+#: .\info\templates\info\visiting.html:36 .\templates\new_base.html:101
+#: .\templates\new_base.html:292
+msgid "教育目標"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:99
+#: .\home\templates\home\homepage.html:559
+#: .\info\templates\info\directions.html:32
+#: .\info\templates\info\equipment.html:42 .\info\templates\info\honor.html:42
+#: .\info\templates\info\info_list.html:42
+#: .\info\templates\info\regulation.html:9
+#: .\info\templates\info\regulation.html:21
+#: .\info\templates\info\regulation.html:42
+#: .\info\templates\info\visiting.html:42 .\templates\new_base.html:103
+#: .\templates\new_base.html:294
+msgid "法規彙編"
+msgstr "法規事蹟"
+
+#: .\home\templates\home\homepage.html:100
+#: .\home\templates\home\homepage.html:507
+#: .\home\templates\home\homepage.html:560
+#: .\info\templates\info\directions.html:35
+#: .\info\templates\info\equipment.html:45 .\info\templates\info\honor.html:45
+#: .\info\templates\info\info_list.html:45
+#: .\info\templates\info\regulation.html:45
+#: .\info\templates\info\visiting.html:9
+#: .\info\templates\info\visiting.html:21
+#: .\info\templates\info\visiting.html:45 .\templates\new_base.html:104
+#: .\templates\new_base.html:246 .\templates\new_base.html:295
+msgid "交通資訊"
+msgstr "交通資訊"
+
+#: .\home\templates\home\homepage.html:101
+#: .\home\templates\home\homepage.html:561
+#: .\info\templates\info\directions.html:38
+#: .\info\templates\info\equipment.html:9
+#: .\info\templates\info\equipment.html:48 .\info\templates\info\honor.html:48
+#: .\info\templates\info\info_list.html:48
+#: .\info\templates\info\regulation.html:48
+#: .\info\templates\info\visiting.html:48 .\templates\new_base.html:105
+#: .\templates\new_base.html:296
+#, fuzzy
+#| msgid "課程介紹"
+msgid "設備介紹"
+msgstr "課程介紹"
+
+#: .\home\templates\home\homepage.html:102
+#: .\home\templates\home\homepage.html:192
+#: .\home\templates\home\homepage.html:637
+#: .\links\templates\links\alumni.html:39
+#: .\links\templates\links\otherSystem.html:39
+#: .\links\templates\links\venue_hire.html:9
+#: .\links\templates\links\venue_hire.html:21
+#: .\links\templates\links\venue_hire.html:38 .\templates\new_base.html:106
+#: .\templates\new_base.html:196 .\templates\new_base.html:372
+msgid "場地租借"
+msgstr "場地租借"
+
+#: .\home\templates\home\homepage.html:107
+#: .\home\templates\home\homepage.html:565
+#: .\members\templates\members\member_detail.html:17
+#: .\members\templates\members\member_list.html:17
+#: .\members\templates\members\office_member_list.html:17
+#: .\members\templates\members\office_member_list.html:26
+#: .\templates\new_base.html:111 .\templates\new_base.html:300
+msgid "成員"
+msgstr "成員"
+
+#: .\home\templates\home\homepage.html:110
+#: .\home\templates\home\homepage.html:567
+#: .\members\templates\members\member_detail.html:8
+#: .\members\templates\members\member_detail.html:18
+#: .\members\templates\members\member_list.html:8
+#: .\members\templates\members\member_list.html:18
+#: .\members\templates\members\member_list.html:46
+#: .\members\templates\members\office_member_list.html:29
+#: .\templates\new_base.html:114 .\templates\new_base.html:302
+msgid "師資"
+msgstr "師資"
+
+#: .\home\templates\home\homepage.html:111
+#: .\home\templates\home\homepage.html:568 .\templates\new_base.html:115
+#: .\templates\new_base.html:303
+msgid "兼任教授"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:112
+#: .\home\templates\home\homepage.html:569 .\templates\new_base.html:116
+#: .\templates\new_base.html:304
+msgid "合聘教授"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:113
+#: .\home\templates\home\homepage.html:570
+#: .\members\templates\members\member_list.html:34
+#: .\members\templates\members\member_list.html:70
+#: .\members\templates\members\member_list.html:91
+#: .\members\templates\members\office_member_list.html:38
+#: .\templates\new_base.html:117 .\templates\new_base.html:305
+msgid "客座教授"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:114
+#: .\home\templates\home\homepage.html:571
+#: .\members\templates\members\member_list.html:76
+#: .\members\templates\members\office_member_list.html:8
+#: .\members\templates\members\office_member_list.html:18
+#: .\members\templates\members\office_member_list.html:41
+#: .\templates\new_base.html:118 .\templates\new_base.html:306
+msgid "系辦成員"
+msgstr "系辦成員"
+
+#: .\home\templates\home\homepage.html:119
+#: .\home\templates\home\homepage.html:575
+#: .\research\templates\research\areas.html:20
+#: .\research\templates\research\areas.html:30
+#: .\research\templates\research\centers.html:20
+#: .\research\templates\research\centers.html:30
+#: .\research\templates\research\international.html:20
+#: .\research\templates\research\international.html:30
+#: .\research\templates\research\laboratories.html:20
+#: .\research\templates\research\laboratories.html:29
+#: .\templates\new_base.html:123 .\templates\new_base.html:310
+msgid "學術研究"
+msgstr "學術研究"
+
+#: .\home\templates\home\homepage.html:122
+#: .\home\templates\home\homepage.html:577
+#: .\research\templates\research\areas.html:33
+#: .\research\templates\research\centers.html:33
+#: .\research\templates\research\international.html:33
+#: .\research\templates\research\laboratories.html:9
+#: .\research\templates\research\laboratories.html:21
+#: .\research\templates\research\laboratories.html:32
+#: .\templates\new_base.html:126 .\templates\new_base.html:312
+msgid "實驗室"
+msgstr "實驗室"
+
+#: .\home\templates\home\homepage.html:123
+#: .\home\templates\home\homepage.html:578
+#: .\research\templates\research\areas.html:9
+#: .\research\templates\research\areas.html:21
+#: .\research\templates\research\areas.html:36
+#: .\research\templates\research\centers.html:36
+#: .\research\templates\research\international.html:36
+#: .\research\templates\research\laboratories.html:35
+#: .\templates\new_base.html:127 .\templates\new_base.html:313
+msgid "研究群"
+msgstr "研究群"
+
+#: .\home\templates\home\homepage.html:124
+#: .\home\templates\home\homepage.html:579
+#: .\research\templates\research\areas.html:39
+#: .\research\templates\research\centers.html:9
+#: .\research\templates\research\centers.html:21
+#: .\research\templates\research\centers.html:39
+#: .\research\templates\research\international.html:39
+#: .\research\templates\research\laboratories.html:38
+#: .\templates\new_base.html:128 .\templates\new_base.html:314
+msgid "研究中心"
+msgstr "研究中心"
+
+#: .\home\templates\home\homepage.html:149
+#: .\home\templates\home\homepage.html:600 .\templates\new_base.html:153
+#: .\templates\new_base.html:335
+msgid "教室借用"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:150
+#: .\home\templates\home\homepage.html:601 .\templates\new_base.html:154
+#: .\templates\new_base.html:336
+msgid "資格考查詢系統"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:171
+#: .\home\templates\home\homepage.html:620
+#: .\news\templates\news\post_detail.html:9
+#: .\news\templates\news\post_detail.html:21
+#: .\news\templates\news\post_list.html:9
+#: .\news\templates\news\post_list.html:22
+#: .\news\templates\news\post_list.html:47 .\templates\new_base.html:175
+#: .\templates\new_base.html:355
+msgid "公告"
+msgstr "公告"
+
+#: .\home\templates\home\homepage.html:174
+#: .\home\templates\home\homepage.html:622
+#: .\news\templates\news\post_list.html:38
+#: .\news\templates\news\post_list.html:50 .\templates\new_base.html:178
+#: .\templates\new_base.html:357
+msgid "全部資訊"
+msgstr "全部資訊"
+
+#: .\home\templates\home\homepage.html:175
+#: .\home\templates\home\homepage.html:623
+#: .\news\templates\news\post_list.html:26
+#: .\news\templates\news\post_list.html:53 .\templates\new_base.html:179
+#: .\templates\new_base.html:358
+msgid "一般資訊"
+msgstr "一般資訊"
+
+#: .\home\templates\home\homepage.html:176
+#: .\home\templates\home\homepage.html:624
+#: .\news\templates\news\post_list.html:24
+#: .\news\templates\news\post_list.html:56 .\templates\new_base.html:180
+#: .\templates\new_base.html:359
+msgid "大學部招生"
+msgstr "大學部招生"
+
+#: .\home\templates\home\homepage.html:177
+#: .\home\templates\home\homepage.html:625
+#: .\news\templates\news\post_list.html:28
+#: .\news\templates\news\post_list.html:59 .\templates\new_base.html:181
+#: .\templates\new_base.html:360
+msgid "研究所招生"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:178
+#: .\home\templates\home\homepage.html:626
+#: .\news\templates\news\post_list.html:62 .\templates\new_base.html:182
+#: .\templates\new_base.html:361
+msgid "演講及活動資訊"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:179
+#: .\home\templates\home\homepage.html:384
+#: .\home\templates\home\homepage.html:627
+#: .\news\templates\news\post_list.html:32
+#: .\news\templates\news\post_list.html:65 .\templates\new_base.html:183
+#: .\templates\new_base.html:362
+msgid "獲獎資訊"
+msgstr "獲獎資訊"
+
+#: .\home\templates\home\homepage.html:180
+#: .\home\templates\home\homepage.html:628
+#: .\news\templates\news\post_list.html:34
+#: .\news\templates\news\post_list.html:68 .\templates\new_base.html:184
+#: .\templates\new_base.html:363
+msgid "獎助學金"
+msgstr "獎助學金"
+
+#: .\home\templates\home\homepage.html:181
+#: .\home\templates\home\homepage.html:629
+#: .\news\templates\news\post_list.html:36
+#: .\news\templates\news\post_list.html:71 .\templates\new_base.html:185
+#: .\templates\new_base.html:364
+msgid "徵人資訊"
+msgstr "徵人資訊"
+
+#: .\home\templates\home\homepage.html:187
+#: .\home\templates\home\homepage.html:474
+#: .\home\templates\home\homepage.html:633
+#: .\links\templates\links\alumni.html:20
+#: .\links\templates\links\alumni.html:30 .\links\templates\links\eecs.html:20
+#: .\links\templates\links\ncku.html:20
+#: .\links\templates\links\otherSystem.html:20
+#: .\links\templates\links\otherSystem.html:30
+#: .\links\templates\links\venue_hire.html:20
+#: .\links\templates\links\venue_hire.html:29
+#: .\news\templates\news\post_detail.html:79 .\templates\new_base.html:191
+#: .\templates\new_base.html:368
+msgid "相關連結"
+msgstr "相關連結"
+
+#: .\home\templates\home\homepage.html:190
+#: .\home\templates\home\homepage.html:635
+#: .\links\templates\links\alumni.html:33
+#: .\links\templates\links\otherSystem.html:9
+#: .\links\templates\links\otherSystem.html:21
+#: .\links\templates\links\otherSystem.html:33
+#: .\links\templates\links\venue_hire.html:32 .\templates\new_base.html:194
+#: .\templates\new_base.html:370
+msgid "其他服務系統"
+msgstr "其他服務系統"
+
+#: .\home\templates\home\homepage.html:191
+#: .\home\templates\home\homepage.html:636
+#: .\links\templates\links\alumni.html:9
+#: .\links\templates\links\alumni.html:21
+#: .\links\templates\links\alumni.html:36
+#: .\links\templates\links\otherSystem.html:36
+#: .\links\templates\links\venue_hire.html:35 .\templates\new_base.html:195
+#: .\templates\new_base.html:371
+msgid "系友資訊"
+msgstr "系友資訊"
+
+#: .\home\templates\home\homepage.html:193
+#: .\home\templates\home\homepage.html:638
+#: .\links\templates\links\alumni.html:42
+#: .\links\templates\links\otherSystem.html:42
+#: .\links\templates\links\venue_hire.html:41 .\templates\new_base.html:197
+#: .\templates\new_base.html:373
+msgid "問卷系統"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:199
+#: .\home\templates\home\homepage.html:643 .\templates\new_base.html:203
+#: .\templates\new_base.html:378
+msgid "舊版網站"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:300
+msgid "最新消息"
+msgstr "最新消息"
+
+#: .\home\templates\home\homepage.html:305
+msgid "一般"
+msgstr "一般"
+
+#: .\home\templates\home\homepage.html:306
+#: .\home\templates\home\homepage.html:346
+#: .\home\templates\home\homepage.html:385
+msgid "更多"
+msgstr "更多"
+
+#: .\home\templates\home\homepage.html:345
+msgid "招生"
+msgstr "招生"
+
+#: .\home\templates\home\homepage.html:425
+msgid "資訊要聞"
+msgstr "醫訊要聞"
+
+#: .\home\templates\home\homepage.html:440
+msgid "更多內容"
+msgstr ""
+
+#: .\home\templates\home\homepage.html:513 .\templates\new_base.html:252
+msgid "師資陣容"
+msgstr "師資陣容"
+
+#: .\home\templates\home\homepage.html:522 .\templates\new_base.html:261
+msgid "分機查詢"
+msgstr ""
+
+#: .\info\templates\info\regulation.html:57
+msgid "教師"
+msgstr ""
+
+#: .\info\templates\info\regulation.html:58
+msgid "課務"
+msgstr ""
+
+#: .\info\templates\info\regulation.html:59
+#, fuzzy
+#| msgid "獎助學金"
+msgid "獎學金"
+msgstr "獎助學金"
+
+#: .\links\templates\links\eecs.html:9 .\links\templates\links\eecs.html:21
+msgid "電資學院"
+msgstr "電資學院"
+
+#: .\links\templates\links\ncku.html:9 .\links\templates\links\ncku.html:21
+msgid "成功大學"
+msgstr "成功大學"
+
+#: .\locallibrary\settings.py:152
+msgid "Traditional Chinese"
+msgstr "繁體中文"
+
+#: .\locallibrary\urls.py:82
+msgid "admin/"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:37
+msgid "聯絡方式"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:55
+msgid "個人網站"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:69
+msgid "專長及研究領域"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:76
+msgid "學歷"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:83
+msgid "經歷"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:90
+msgid "專利"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:97
+msgid "榮譽及獲獎"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:104
+msgid "著作"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:121
+msgid "國際會議"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:125
+msgid "國內會議"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:135
+msgid "研究計劃"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:138
+msgid "科技部計劃"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:144
+msgid "一般建教案"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:153
+msgid "指導學生情況"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:157
+msgid "指導學生"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:158
+#, fuzzy
+#| msgid "博士"
+msgid "博士班"
+msgstr "博士"
+
+#: .\members\templates\members\member_detail.html:162
+#, fuzzy
+#| msgid "碩士"
+msgid "碩士班"
+msgstr "碩士"
+
+#: .\members\templates\members\member_detail.html:169
+msgid "指導學生之特殊榮譽"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:175
+msgid "主辦及參與國際會議"
+msgstr ""
+
+#: .\members\templates\members\member_detail.html:241
+#, fuzzy
+#| msgid "師資陣容"
+msgid "返回師資陣容"
+msgstr "師資陣容"
+
+#: .\members\templates\members\member_list.html:20
+#: .\members\templates\members\member_list.html:49
+msgid "資訊系"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:28
+#: .\members\templates\members\member_list.html:58
+msgid "製造所"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:30
+#: .\members\templates\members\member_list.html:64
+#: .\members\templates\members\member_list.html:89
+#: .\members\templates\members\office_member_list.html:32
+msgid "兼任師資"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:32
+#: .\members\templates\members\member_list.html:67
+#: .\members\templates\members\member_list.html:90
+#: .\members\templates\members\office_member_list.html:35
+msgid "合聘師資"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:36
+#: .\members\templates\members\member_list.html:73
+#: .\members\templates\members\member_list.html:92
+msgid "退休教師"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:84
+msgid "資訊工程學系"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:85
+msgid "資訊工程研究所"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:86
+msgid "人工智慧科技碩士學位學程"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:87
+msgid "醫學資訊研究所"
+msgstr ""
+
+#: .\members\templates\members\member_list.html:88
+msgid "製造資訊與系統研究所"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:67
+msgid "公告類型"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:68
+msgid "公告狀態"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:69
+msgid "公告人員"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:70
+msgid "公告日期"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:71
+msgid "更新日期"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:87
+msgid "附加檔案"
+msgstr ""
+
+#: .\news\templates\news\post_detail.html:100
+msgid "返回公告"
+msgstr ""
+
+#: .\news\templates\news\post_list.html:30
+msgid "演講資訊"
+msgstr "演講資訊"
+
+#: .\templates\registration\logged_out.html:4
+msgid "Home"
+msgstr ""
+
+#: .\templates\registration\logged_out.html:10
+msgid "Log in again"
+msgstr ""
+
+#~ msgid "博士"
+#~ msgstr "博士"
+
+#~ msgid "文件下載"
+#~ msgstr "文件下載"
+
+#~ msgid "產業碩士專班"
+#~ msgstr "產業碩士專班"
+
+#~ msgid "碩博士"
+#~ msgstr "碩博士"
+
+#~ msgid "演講"
+#~ msgstr "演講"
+
+#~ msgid "分類"
+#~ msgstr "分類"
+
+#~ msgid "專任"
+#~ msgstr "專任"
+
+#~ msgid "合聘"
+#~ msgstr "合聘"
+
+#~ msgid "客座"
+#~ msgstr "客座"
+
+#~ msgid "退休"
+#~ msgstr "退休"
+
+#~ msgid "碩士"
+#~ msgstr "碩士"
+
+#~ msgid "碩博士招生"
+#~ msgstr "碩博士招生"

@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <title>國立成功大學資訊工程系 校友專區</title>
+
+  {% load static %}
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  <!-- <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template 
+  <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+  -->
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet"  href="{% static 'alumni_area/css/blog.css' %}">
+</head>
+
+<body>
+
+
+
+  <div class="">
+    <!-- <header class="blog-header py-4">
+      <div class="row flex-nowrap justify-content-between align-items-center">
+
+        <div class="col-12 text-center">
+          <a class="blog-header-logo text-dark text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/"><h3>國立成功大學資訊工程系 </h3><h1>校友專區</h1></a>
+        </div>
+
+      </div>
+    </header> -->
+
+    <nav class="navbar bg-light border-bottom px-5">
+      <a class="blog-header-logo text-dark text-decoration-none px-5" href="https://www.csie.ncku.edu.tw/Alumni_area/">國立成功大學資訊工程系 <h1>校友專區</h1></a>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/">首頁</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-2 link-secondary text-center text-decoration-none" href="#">關於</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/event.html">活動花絮</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/outstanding.html">傑出系友</a>
+        </li>
+        <li class="nav-item">
+          <a class="p-2 link-secondary text-center text-decoration-none" target="blank" href="https://donate.ncku.edu.tw/?Lang=zh-tw">我要捐款</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <!-- <div class="nav-scroller py-1 mb-2">
+      <nav class="nav d-flex justify-content-around navbar-light bg-light">
+        <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/">首頁</a>
+        <a class="p-2 link-secondary text-center text-decoration-none" href="#">關於</a>
+        <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/event.html">活動花絮</a>
+        <a class="p-2 link-secondary text-center text-decoration-none" href="https://www.csie.ncku.edu.tw/Alumni_area/outstanding.html">傑出系友</a>
+        <a class="p-2 link-secondary text-center text-decoration-none" target="blank" href="https://donate.ncku.edu.tw/?Lang=zh-tw">我要捐款</a>
+      </nav>
+    </div> -->
+  </div>
+
+  <main class="container">
+    <!--
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark" style="background-image: url('school.jpg'); background-repeat: no-repeat; background-size: cover;">
+      <div class="col-md-6 px-0" >
+        <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently
+          about what’s most interesting in this post’s contents.</p>
+        <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+      </div>
+    </div>
+    -->
+
+    <div class="row g-5  my-3">
+      <div class="col-md-8">
+        <h3 class="block-title fst-italic">
+          公告
+        </h3>
+
+        <article class="blog-post border-bottom my-4">
+          <h2 class="blog-post-title">【畢業生流向調查】國立成功大學109學年度(110級)、107學年度(108級)、105學年度(106級)畢業生流向調查熱烈進行中~ 歡迎校友踴躍填寫!</h2>
+          <p class="blog-post-meta">July 11, 2022</p>
+          <p>系所老師/同仁，您好！</p>
+          <p>本校今(111)年度畢業生流向調查已經上線囉~</p>
+          <p>本次調查對象為109學年度(110級)、107學年度(108級)、105學年度(106級)之畢業生</p>
+          <p>本調查結果是本校高等教育、校務發展及系所課程規劃與校系友服務之重要參考，本校與系所將能透過調查結果深入了解學生所需，提供更加完善之服務!</p>
+          <p>
+            本次畢業生流向調查公告連結：
+            <a href="https://grad-osa.ncku.edu.tw/p/406-1054-239875,r96.php?Lang=zh-tw">https://grad-osa.ncku.edu.tw/p/406-1054-239875,r96.php?Lang=zh-tw</a>
+          </p>
+          <p>
+            109、107及105學年度畢業1、3及5年流向問卷網址：
+            <a href="http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth">http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth</a>
+          </p>
+          <p>(備註: 分享問卷連結訊息請務必加註建議使用Edge瀏覽器開啟；若使用Chrome(Google瀏覽器)無法開啟時，請清除cookie或以無痕模式執行)</p>
+        </article>
+
+        <article class="blog-post border-bottom my-4">
+          <h2 class="blog-post-title">系友講座：軟體新創征戰世界，凱鈿創業經驗分享</h2>
+          <p class="blog-post-meta">Nov 1, 2021  活動花絮</p>
+          <a href="{% static 'alumni_area/images/20211101/演講海報.jpg' %}" target="blank"><img style='height: 25%; width: 25%; object-fit: contain' src="{% static 'alumni_area/images/20211101/演講海報.jpg' %}" alt=""></a>
+          <a href="{% static 'alumni_area/images/20211101/2121.10 (1).jpg' %}" target="blank"><img style='height: 25%; width: 25%; object-fit: contain' src="{% static 'alumni_area/images/20211101/2121.10 (1).jpg' %}" alt=""></a>
+          <a href="{% static 'alumni_area/images/20211101/2121.10 (2).jpg' %}" target="blank"><img style='height: 25%; width: 25%; object-fit: contain' src="{% static 'alumni_area/images/20211101/2121.10 (2).jpg' %}" alt=""></a>
+
+        </article>
+
+        <article class="blog-post border-bottom my-4">
+          <h2 class="blog-post-title">恭喜 蘇柏州當選國立成功大學 90 週年校慶優秀青年校友</h2>
+          <p class="blog-post-meta">Nov 1, 2021  傑出系友</p>
+          <p><a target="blank" href="https://www.csie.ncku.edu.tw/Alumni_area/file/20211101/公告優秀青年校友得獎名單(57人)1025.pdf">國立成功大學 90 週年校慶優秀青年校友得獎名單</a></p>
+
+        </article>
+
+        <article class="blog-post border-bottom my-4">
+          <h2 class="blog-post-title">系友動態: 成大、凱鈿、耐能攜手打造數位化時代</h2>
+          <p class="blog-post-meta">Nov 1, 2021</p>
+          <p>國立成功大學與台灣的國際軟體服務商凱鈿行動科技與跨國新創耐能智慧攜手合作，以新創科技描繪後疫情時代的新生活解決方案，預期在校園導入電子簽名、文件編輯及智能臉部辨識體溫量測系統等智慧科技服務，發展智慧化永續校園、新教育創新模式及創新跨域多元平台。</p>
+          <p>詳細內容請看：<a href="https://web.ncku.edu.tw/p/406-1000-229572,r3095.php?Lang=zh-tw">成大、凱鈿、耐能攜手打造數位化時代</a></p>
+
+        </article>
+
+        <article class="blog-post border-bottom my-4">
+          <h2 class="blog-post-title">【畢業生流向調查】敬請各系所協助宣傳本校108、106及104學年度畢業生流向調查</h2>
+          <p class="blog-post-meta">July 23, 2021</p>
+          <p>敬愛的校友：您好！</p>
+          <p>
+            猶記驪歌響起，至母校畢業的您就此進入另一段旅程，師長們均非常關心您的畢業動態及就業情形。同時為配合教育部及校方作為高等教育、校務發展及系所課程規劃與校系友服務之重要參考，特編制此份調查問卷，請您撥冗填寫，謝謝您的合作！
+          </p>
+          <p>為鼓勵本校畢業生填答，以提高填答率，將分別針對畢業後1年、3年及5年的畢業生各提供5台平板電腦，問卷調查結束後，系統將分別自動抽出各5名畢業生，由本組通知受獎人並依規定扣繳所得稅。</a></p>
+          <p>108、106及104學年度即109級、107級、105級畢業1、3及5年流向問卷網址：<a
+              href="http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth">http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth</a>
+          </p>
+          <p>註:google chrome的cookies會屏蔽此網站，敬請學長姐們用無痕模式打開此網站。</p>
+
+          <hr>
+          <p>Dear NCKU alumnus of 2020, 2018, 2016</p>
+          <p>The graduation from NCKU has led you toward another life journey and the alma mater has been very concerned
+            about your current situation of employment. We sincerely invite you to fill in a questionnaire upon
+            university graduates’ further developments. We will be grateful for your sharing this information among the
+            2016/2018/2020 graduates!</p>
+          <p>Your responses to this survey are important references for school curriculum planning and career
+            counseling. The alumni who complete the questionnaire will be offered the chance to win a free tablet in a
+            lucky draw. The survey will end on November 2nd, 2021 and the system will automatically draw lots. The lucky
+            winners of the free tablet will be notified via phone and email by December. Thank you again for your time
+            and input!</p>
+          <p>Fill out now the Survey of NCKU Graduates Employment Intention : <a
+              href="http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth">http://ques2.osa.ncku.edu.tw/~gfssys/index.php?auth</a>
+          </p>
+
+        </article>
+
+
+      </div>
+
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem;">
+          <div class="p-4 mb-3 bg-light rounded">
+            <h4 class="fst-italic">About</h4>
+            <p class="mb-0">本系為南台灣第一個純以資訊及計算機工程為重心的高級學術單位， 於民國七十六年八月成立碩士班，八十一年八月成立博士班， 於八十六年八月成立大學部，九十一年八月擴增大學部為兩班，
+              並於九十五學年度再增設醫學資訊研究所，一百年八月製造資訊與系統研究所整合至本系，以一系三所之模式進行。</p>
+            <p class="mb-0">為因應國內高科技產業人力需求， 每位教授及研究生均積極參與國內外學術活動，並在高水準的期刊及會議上發表研究成果， 並有多位教授獲得學術榮譽如國科會傑出研究獎等獎項。</p>
+          </div>
+
+          <div class="p-4">
+            <h4 class="block-title fst-italic">Archives</h4>
+            <ol class="list-unstyled mb-0">
+              <!--
+              <li><a href="#">March 2021</a></li>
+              <li><a href="#">February 2021</a></li>
+              <li><a href="#">January 2021</a></li>
+              <li><a href="#">December 2020</a></li>
+              <li><a href="#">November 2020</a></li>
+              <li><a href="#">October 2020</a></li>
+              <li><a href="#">September 2020</a></li>
+              <li><a href="#">August 2020</a></li>
+              <li><a href="#">July 2020</a></li>
+              <li><a href="#">June 2020</a></li>
+              <li><a href="#">May 2020</a></li>
+              <li><a href="#">April 2020</a></li>
+              -->
+            </ol>
+          </div>
+
+          <div class="p-4">
+            <h4 class="block-title fst-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="https://www.csie.ncku.edu.tw/ncku_csie/">NCKU CSIE</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="blog-footer">
+    <p>
+      <a href="#">Back to top</a>
+    </p>
+  </footer>
+
+
+
+</body>
+
+</html>

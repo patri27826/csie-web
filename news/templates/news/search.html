@@ -1,0 +1,67 @@
+{% extends 'new_base.html' %}
+{% load i18n %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-1"></div>
+    <div class="col-xl-10">
+      <h3 class="font-weight-bolder" style="color: #000066;">"{{ query }}"搜尋結果</h3>
+        <section class="post_list-area">
+            {% if post_list %}
+            
+            <div class="list-group p-3">
+              {% for post in post_list %}
+              <div class="list-group-item list-group-item-action">
+                <a href="{{  post.get_absolute_url }}">
+                <div class="d-flex w-100 justify-content-between">
+                  {% get_current_language as CURRENT_LANGUAGE %}
+                  {% if CURRENT_LANGUAGE == 'en' and post.title_en != '' and post.title_en != None and post.title_en != 'NULL' %}
+                  <h4 class="mb-1">{{ post.title_en }}</h4>
+                  {% else %}
+                  <h4 class="mb-1">{{ post.title }}</h4>
+                  {% endif %}
+                  <small class="text-muted">{{ post.date|date:"Y.m.d" }}</small>
+                </div>
+              </a>
+                {% with content=post.content|safe %}
+                <p class="mb-2">{{ content|truncatechars:200 }}</p>
+                {% endwith %}
+                <small class="text-muted">{{ post.stuff }}</small>
+              </div>
+              {% endfor %}
+            </div>
+            
+            <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}&q={{ query }}" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              {% endif %}
+  
+              {% for i in paginator.page_range %}
+                  {% if i < page_obj.number and i >= page_obj.number|add:"-4" and i != page_obj.number and i != 1 %}
+                      <li class="page-item"><a class="page-link" href="?page={{i}}&q={{ query }}">{{i}}</a></li>
+                  {% elif i > page_obj.number and i <= page_obj.number|add:"4" and i != page_obj.number and i != page_obj.paginator.num_pages %}
+                      <li class="page-item"><a class="page-link" href="?page={{i}}&q={{ query }}">{{i}}</a></li>
+                  {% elif page_obj.number == i %}
+                      <li  class="page-item active"><a class="page-link" href="?page={{i}}&q={{ query }}">{{i}}</a></li>
+                  {% endif %}
+              {% endfor %}
+  
+              {% if page_obj.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{ query }}" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          {% else %}
+          <h5>沒有找到相關內容</h5>
+          {% endif %}
+          </section>
+    </div>
+    <div class="col-xl-1"></div>
+</div>
+{% endblock %}
